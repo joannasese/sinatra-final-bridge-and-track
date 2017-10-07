@@ -6,6 +6,6 @@ end
 
 use Rack::MethodOverride
 use UserController
-use ReportsController
-use CommentsController
+use ReportController
+use CommentController
 run ApplicationController
