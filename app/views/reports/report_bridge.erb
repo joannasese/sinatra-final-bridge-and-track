@@ -1,5 +1,11 @@
-Thanks. Train crossing the tracks reported at <%=  %>.
+<p>Thanks. Train crossing the tracks reported at <%= @bridge_report.time %>.
 <p>Leave a comment:<br>
-<form method="post" action="/comment">
+<form method="post" action="/home">
   <input type="text" name="comment">
+  <input type="submit" id="submit" value="Comment">
 </form>
+
+<p>
+  <form method="get" action="/home">
+    <input type="submit" value="Home">
+  </form>

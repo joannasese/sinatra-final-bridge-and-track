@@ -1,7 +1,8 @@
-#environment.rb requires gems in Gemfile 
+#environment.rb requires gems in Gemfile
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
+require 'time'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 ActiveRecord::Base.establish_connection(
