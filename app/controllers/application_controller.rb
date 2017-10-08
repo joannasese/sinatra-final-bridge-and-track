@@ -10,8 +10,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/' do
-      @bridge_reports = BridgeReport.all
-      erb :index
+      erb :"index"
     end
 
     helpers do

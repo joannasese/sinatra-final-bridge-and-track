@@ -1,8 +1,7 @@
 <h2>Home</h2>
 <p>Train on the Tracks?<br>
   <form method="post" action="/report_train">
-    <input value="<%= @time %>">
-    <input type="submit" id="submit" value="Report Train">
+    <input type="submit" id="submit" name="time" value="Report Train">
   </form>
 
 <p>Bridge Up?<br>
@@ -10,7 +9,7 @@
     <input type="submit" id="submit" value="Report Bridge">
   </form>
 
-<h2>Recent Reports</h2>
+<h2>Recent Bridge Reports</h2>
 <% @bridge_reports.each do |bridge_report| %>
   <%= bridge_report.time %>
 <% end %>

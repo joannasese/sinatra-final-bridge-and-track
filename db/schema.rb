@@ -10,6 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171008023356) do
+
+  create_table "bridge_reports", force: :cascade do |t|
+    t.datetime "time"
+    t.integer "user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+  end
+
+  create_table "train_reports", force: :cascade do |t|
+    t.datetime "time"
+    t.integer "user_id"
+  end
+
+  create_table "user_reports", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "bridge_report_id"
+    t.integer "train_report_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password"
+    t.string "password_digest"
+  end
 
 end
