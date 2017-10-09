@@ -29,3 +29,17 @@
     <% end %>
   <% end %>
 <% end %>
+
+<h2>Recent Train Reports</h2>
+<% if @train_reports.empty? %>
+  <p>All's quiet.
+<% end %>
+
+<% @train_reports.each do |train_report| %>
+  <p><div class="test"><%= train_report.time %><br></div>
+  <% Comment.all.each do |comment| %>
+    <% if comment.train_report_id == train_report.id %>
+      <%= current_user.username %> says: <%= comment.content %><br>
+    <% end %>
+  <% end %>
+<% end %>
