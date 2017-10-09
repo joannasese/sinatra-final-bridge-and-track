@@ -1,7 +1,7 @@
 <p>Thanks. Bridge up reported at <%= @bridge_report_time %>.
 
 <p>Leave a comment:<br>
-<form method="post" action="/home/bridge_comment">
+<form method="post" action="/home/bridge_comment/<%= @bridge_report.id %>">
   <input type="text" name="content">
   <input type="submit" id="submit" value="Comment">
 </form>

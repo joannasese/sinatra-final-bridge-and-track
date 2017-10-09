@@ -27,12 +27,14 @@
   <% Comment.all.each do |comment| %>
     <% if comment.bridge_report_id == bridge_report.id %>
       <%= comment.user.username %> says: <%= comment.content %><br>
+
         <% if bridge_report.user_id == current_user.id %>
           <form method="post" action="/delete_bridge_report">
             <input id="hidden" type="hidden" name="_method" value="DELETE">
             <input type="submit" value="Delete">
           </form>
         <% end %>
+
       <% end %>
     <% end %>
   <% end %>

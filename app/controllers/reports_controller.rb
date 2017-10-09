@@ -5,7 +5,7 @@ class ReportController < ApplicationController
       @bridge_report = current_user.bridge_reports.create(time: params[:time])
       @bridge_report.user_id = current_user.id
       @bridge_report.save
-      redirect to '/bridge_comment'
+      redirect to "/bridge_comment/#{@bridge_report.id}"
     else
       redirect to '/login'
     end
@@ -23,20 +23,22 @@ class ReportController < ApplicationController
   end
 
   delete "/delete_bridge_report" do
-    binding.pry
+    # binding.pry
     if logged_in?
-      @bridge_report = BridgeReport.find {|br| br.user_id}
-      @comment = Comment.find_by(id: params[:id])
-
-      if @bridge_report.user_id == current_user.id
-        @bridge_report.delete
-
-        if @comment && @comment.bridge_report_id == @bridge_report.id
-          @comment.delete
-        end
-        redirect to "/home"
-      end
-
+    #   #find way to find precise report
+    #   BridgeReport.all.each do |br|
+    #     if br.user_id ==
+    #   @comment = Comment.find_by(id: params[:id])
+    #
+    #   if @bridge_report.user_id == current_user.id
+    #     @bridge_report.delete
+    #
+    #     if @comment && @comment.bridge_report_id == @bridge_report.id
+    #       @comment.delete
+    #     end
+    #     redirect to "/home"
+    #   end
+    #
     end
   end
 

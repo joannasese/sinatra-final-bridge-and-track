@@ -1,11 +1,12 @@
 class CommentController < ApplicationController
 
-  get '/bridge_comment' do
+  get "/bridge_comment/:id" do
+    @bridge_report = BridgeReport.find_by_id(params[:id])
     @bridge_report_time = current_user.bridge_reports.last.time
     erb :"/reports/report_bridge"
   end
 
-  post "/home/bridge_comment" do
+  post "/home/bridge_comment/:id" do
     if params[:content] != ""
       @comment = current_user.comments.create(content: params[:content])
       @comment.user_id = current_user.id
