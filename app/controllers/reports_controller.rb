@@ -22,23 +22,15 @@ class ReportController < ApplicationController
     end
   end
 
-  delete "/delete_bridge_report" do
-    # binding.pry
+  delete "/delete_bridge_report/:id" do
     if logged_in?
-    #   #find way to find precise report
-    #   BridgeReport.all.each do |br|
-    #     if br.user_id ==
-    #   @comment = Comment.find_by(id: params[:id])
-    #
-    #   if @bridge_report.user_id == current_user.id
-    #     @bridge_report.delete
-    #
-    #     if @comment && @comment.bridge_report_id == @bridge_report.id
-    #       @comment.delete
-    #     end
-    #     redirect to "/home"
-    #   end
-    #
+      @bridge_report = BridgeReport.find_by_id(params[:id])
+      @comment = @bridge_report.comments.find_by(:bridge_report_id => params[:id])
+      @bridge_report.delete
+      @comment.delete
+      redirect to "/home"
+    else
+      redirect to "/login"
     end
   end
 
