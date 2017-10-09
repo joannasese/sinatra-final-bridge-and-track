@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20171009175703) do
     t.string "content"
     t.integer "user_id"
     t.integer "bridge_report_id"
+    t.integer "train_report_id"
   end
 
   create_table "train_reports", force: :cascade do |t|

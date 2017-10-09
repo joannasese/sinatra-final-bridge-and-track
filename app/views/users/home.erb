@@ -16,15 +16,15 @@
 </form>
 
 <h2>Recent Bridge Reports</h2>
+<% if @bridge_reports.empty? %>
+  <p>All's quiet.
+<% end %>
 
 <% @bridge_reports.each do |bridge_report| %>
-
-    <p><div class="test"><%= bridge_report.time %><br></div>
-
-      <% Comment.all.each do |comment| %>
+  <p><div class="test"><%= bridge_report.time %><br></div>
+  <% Comment.all.each do |comment| %>
     <% if comment.bridge_report_id == bridge_report.id %>
-    <!--maybe doesn't differentiate different user comments as specific to each report. maybe comment belongs to report?-->
-      Comment: <%= comment.content %><br>
+      <%= current_user.username %> says: <%= comment.content %><br>
     <% end %>
   <% end %>
 <% end %>

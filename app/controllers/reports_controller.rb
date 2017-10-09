@@ -2,7 +2,7 @@ class ReportController < ApplicationController
 
   post "/report_bridge" do
     if logged_in?
-      @bridge_report = current_user.bridge_reports.create(time: params[:time], user_id: params[:user_id])
+      @bridge_report = current_user.bridge_reports.create(time: params[:time])
       @bridge_report.user_id = current_user.id
       @bridge_report.save
       redirect to '/bridge_comment'
