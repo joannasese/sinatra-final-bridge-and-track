@@ -8,7 +8,8 @@
 
 <p>Train on the Tracks?<br>
   <form method="post" action="/report_train">
-    <input type="submit" id="submit" name="time" value="Report Train">
+    <input type="hidden" name="time" value="<%= Time.new.strftime("%A, %B %d, %Y %l:%M %p %Z") %>">
+    <input type="submit" id="submit" value="Report Train">
   </form>
 
 <p><form method="get" action="/logout">
