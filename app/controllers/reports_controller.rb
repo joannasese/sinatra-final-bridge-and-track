@@ -6,10 +6,10 @@ class ReportController < ApplicationController
   # end
 
   post "/report_bridge" do
-    binding.pry
     if params[:time] != nil
       @bridge_report = current_user.bridge_reports.create(time: params[:time])
       @bridge_report.user_id = current_user.id
+binding.pry
       erb :"/reports/report_bridge"
     else
       redirect to '/login'
@@ -26,7 +26,7 @@ class ReportController < ApplicationController
     end
   end
 
-  get "/home" do
+  get "/home" do #do i need this?
     erb :"/users/home"
   end
 
