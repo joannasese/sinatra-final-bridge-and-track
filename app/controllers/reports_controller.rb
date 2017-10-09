@@ -1,10 +1,5 @@
 class ReportController < ApplicationController
 
-  # get "/report_bridge" do
-  #   @bridge_reports = BridgeReport.all
-  #   erb :"/users/home"
-  # end
-
   post "/report_bridge" do
     if logged_in?
 
@@ -30,9 +25,5 @@ class ReportController < ApplicationController
       redirect to '/login'
     end
   end
-
-  # get "/home" do #do i need this?
-  #   erb :"/users/home"
-  # end
 
 end

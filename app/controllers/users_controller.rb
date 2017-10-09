@@ -38,10 +38,14 @@ class UserController < ApplicationController
     end
   end
 
-  get '/home' do 
-    @bridge_reports = BridgeReport.all
-    @train_reports = TrainReport.all
-    erb :'users/home'
+  get '/home' do
+    if logged_in?
+      @bridge_reports = BridgeReport.all
+      @train_reports = TrainReport.all
+      erb :'users/home'
+    else
+      redirect to '/login'
+    end
   end
 
   get '/logout' do
