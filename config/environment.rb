@@ -2,6 +2,7 @@
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
+require 'date'
 require 'time'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 

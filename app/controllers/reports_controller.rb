@@ -6,7 +6,7 @@ class ReportController < ApplicationController
   # end
 
   post "/report_bridge" do
-    if params[:time] != nil
+    if logged_in?
       @bridge_report = current_user.bridge_reports.create(time: params[:time])
       @bridge_report.user_id = current_user.id
       erb :"/reports/report_bridge"
@@ -25,8 +25,8 @@ class ReportController < ApplicationController
     end
   end
 
-  get "/home" do #do i need this?
-    erb :"/users/home"
-  end
+  # get "/home" do #do i need this?
+  #   erb :"/users/home"
+  # end
 
 end

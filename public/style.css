@@ -60,3 +60,7 @@ a:hover {
     width: 5em;
     text-decoration: none;
 }
+
+.test {
+  color: red;
+}
