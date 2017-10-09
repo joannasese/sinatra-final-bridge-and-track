@@ -38,7 +38,7 @@ class UserController < ApplicationController
     end
   end
 
-  get '/home' do
+  get '/home' do 
     @bridge_reports = BridgeReport.all
     @train_reports = TrainReport.all
     erb :'users/home'

@@ -16,11 +16,11 @@
 <% @bridge_reports.each do |bridge_report| %>
   <%= bridge_report.time %><br>
   Comment:
-  <% current_user.comments.all.each do |comment| %>
+  <% Comment.all.each do |comment| %>
     <% if comment.user_id == bridge_report.user_id %>
+
       <%= comment.content %>
+
     <% end %>
   <% end %>
-
-
 <% end %>

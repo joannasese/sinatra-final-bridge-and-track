@@ -9,7 +9,6 @@ class ReportController < ApplicationController
     if params[:time] != nil
       @bridge_report = current_user.bridge_reports.create(time: params[:time])
       @bridge_report.user_id = current_user.id
-binding.pry
       erb :"/reports/report_bridge"
     else
       redirect to '/login'
