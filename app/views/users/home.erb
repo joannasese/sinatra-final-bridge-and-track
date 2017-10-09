@@ -21,11 +21,11 @@
   <p>All's quiet.
 <% end %>
 
-<% @bridge_reports.each do |bridge_report| %>
+<% @bridge_reports.each do |bridge_report| %> <!-- refactor for DRY, compose method -->
   <p><div class="test"><%= bridge_report.time %><br></div>
   <% Comment.all.each do |comment| %>
     <% if comment.bridge_report_id == bridge_report.id %>
-      <%= current_user.username %> says: <%= comment.content %><br>
+      <%= comment.user.username %> says: <%= comment.content %><br>
     <% end %>
   <% end %>
 <% end %>
@@ -39,7 +39,7 @@
   <p><div class="test"><%= train_report.time %><br></div>
   <% Comment.all.each do |comment| %>
     <% if comment.train_report_id == train_report.id %>
-      <%= current_user.username %> says: <%= comment.content %><br>
+      <%= comment.user.username %> says: <%= comment.content %><br>
     <% end %>
   <% end %>
 <% end %>
