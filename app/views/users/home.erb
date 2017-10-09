@@ -18,12 +18,13 @@
 <h2>Recent Bridge Reports</h2>
 
 <% @bridge_reports.each do |bridge_report| %>
-  <p><div class="test"><%= bridge_report.time %><br></div>
 
-  <% Comment.all.each do |comment| %>
-    <% if comment.user_id == bridge_report.user_id %>
+    <p><div class="test"><%= bridge_report.time %><br></div>
+
+      <% Comment.all.each do |comment| %>
+    <% if comment.bridge_report_id == bridge_report.id %>
+    <!--maybe doesn't differentiate different user comments as specific to each report. maybe comment belongs to report?-->
       Comment: <%= comment.content %><br>
-
     <% end %>
   <% end %>
 <% end %>
