@@ -14,7 +14,7 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect to "/home"
     else
-      redirect to "/signup"
+      redirect to "/login"
     end
     erb :"index"
   end
