@@ -1,32 +1,36 @@
 <h2>Home</h2>
 <p>Hey, <%= current_user.username %>. How's the commute?
 
-<p>Bridge Up?<br>
-  <form method="post" action="/report_bridge">
-    <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %b %d, %Y") %>">
-    <input type="submit" id="submit" value="Report Bridge">
-  </form>
+<div class="row">
+  <!-- <div class="space"></div> -->
 
-<p>Train on the Tracks?<br>
-  <form method="post" action="/report_train">
-    <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %b %d, %Y") %>">
-    <input type="submit" id="submit" value="Report Train">
-  </form>
+  <div class="bridge_report">
+    <p>Bridge Up?<br>
+      <form method="post" action="/report_bridge">
+        <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %b %d, %Y") %>">
+        <input type="submit" id="submit" value="Report Bridge">
+      </form>
+  </div>
 
-<p><form method="get" action="/logout">
-  <input type="submit" value="Logout">
-</form>
+  <div class="train_report">
+    <p>Train on the Tracks?<br>
+      <form method="post" action="/report_train">
+        <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %b %d, %Y") %>">
+        <input type="submit" id="submit" value="Report Train">
+      </form>
+  </div>
 
-
+  <!-- <div class="space"></div> -->
+</div>
 
 <div class="row">
-  <div class="report_column_left">
+  <div class="feed_column_left">
     <h2>Recent Bridge Reports</h2>
     <% if @bridge_reports.empty? %>
       <p>All's quiet.
     <% end %>
 
-    <% @bridge_reports.reverse.each do |bridge_report| %> <!-- refactor for DRY, compose method -->
+    <% @bridge_reports.reverse.first(10).each do |bridge_report| %> <!-- refactor for DRY, compose method -->
       <p><div class="time"><%= bridge_report.time %><br></div>
       <% Comment.all.each do |comment| %>
         <% if comment.bridge_report_id == bridge_report.id %>
@@ -40,15 +44,15 @@
           </form>
         <% end %>
       <% end %>
-  </div>
+    </div>
 
-  <div class="report_column_right">
+  <div class="feed_column_right">
     <h2>Recent Train Reports</h2>
     <% if @train_reports.empty? %>
       <p>All's quiet.
     <% end %>
 
-    <% @train_reports.reverse.each do |train_report| %>
+    <% @train_reports.reverse.first(10).each do |train_report| %>
       <p><div class="time"><%= train_report.time %><br></div>
       <% Comment.all.each do |comment| %>
         <% if comment.train_report_id == train_report.id %>
@@ -64,3 +68,7 @@
     <% end %>
   </div>
 </div>
+
+<p><form method="get" action="/logout">
+  <input type="submit" value="Logout">
+</form>

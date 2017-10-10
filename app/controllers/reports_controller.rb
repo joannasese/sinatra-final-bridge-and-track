@@ -16,7 +16,7 @@ class ReportController < ApplicationController
       @train_report = current_user.train_reports.create(time: params[:time])
       @train_report.user_id = current_user.id
       @train_report.save
-      redirect to '/train_comment'
+      redirect to "/train_comment/#{@train_report.id}"
     else
       redirect to '/login'
     end

@@ -66,21 +66,49 @@ a:hover {
   font-weight: bold;
 }
 
-.report_column_left {
+.space {
+  background-color: black;
+  /*width: 25%;*/
+
+}
+
+.bridge_report {
+  background-color: red;
+  float: left;
+  width: 50%;
+  padding-top: 3%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+  padding-left: 25%;
+  box-sizing: border-box;
+}
+
+.train_report {
+  background-color: blue;
+  float: right;
+  width: 50%;
+  padding-top: 3%;
+  padding-right: 25%;
+  padding-bottom: 3%;
+  padding-left: 3%;
+  box-sizing: border-box;
+}
+
+.feed_column_left {
     float: left;
     width: 50%;
     text-align: center;
     padding-top: 3%;
-    padding-left: 25%;
     padding-right: 3%;
-    /*background-color: yellow;*/
+    padding-left: 25%;
+    background-color: yellow;
     box-sizing: border-box;
 }
 
-.report_column_right {
+.feed_column_right {
     float: right;
     width: 50%;
-    /*background-color: green;*/
+    background-color: green;
     text-align: center;
     padding-top: 3%;
     padding-right: 25%;

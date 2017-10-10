@@ -16,12 +16,13 @@ class CommentController < ApplicationController
     end
   end
 
-  get '/train_comment' do
+  get '/train_comment/:id' do
+    @train_report = TrainReport.find_by_id(params[:id])
     @train_report_time = current_user.train_reports.last.time
     erb :"/reports/report_train"
   end
 
-  post '/home/train_comment' do
+  post '/home/train_comment/:id' do
     if params[:content] != ""
       @comment = current_user.comments.create(content: params[:content])
       @comment.user_id = current_user.id
