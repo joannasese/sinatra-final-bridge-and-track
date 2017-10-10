@@ -48,7 +48,7 @@ a:hover {
   color: #BA6CCF;
 }
 
-.button a {
+/*.button a {
     border-bottom: 1px solid #777777;
     border-left: 1px solid #000000;
     border-right: 1px solid #333333;
@@ -59,8 +59,20 @@ a:hover {
     padding: 0 1em;
     width: 5em;
     text-decoration: none;
-}
+}*/
 
 .test {
   color: red;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }

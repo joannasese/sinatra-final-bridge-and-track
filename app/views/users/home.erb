@@ -17,43 +17,50 @@
   <input type="submit" value="Logout">
 </form>
 
-<h2>Recent Bridge Reports</h2>
-<% if @bridge_reports.empty? %>
-  <p>All's quiet.
-<% end %>
 
-<% @bridge_reports.reverse.each do |bridge_report| %> <!-- refactor for DRY, compose method -->
-  <p><div class="test"><%= bridge_report.time %><br></div>
-  <% Comment.all.each do |comment| %>
-    <% if comment.bridge_report_id == bridge_report.id %>
-      <%= comment.user.username %> says: <%= comment.content %><br>
+
+<div class="row">
+  <div class="column">
+    <h2>Recent Bridge Reports</h2>
+    <% if @bridge_reports.empty? %>
+      <p>All's quiet.
+    <% end %>
+
+    <% @bridge_reports.reverse.each do |bridge_report| %> <!-- refactor for DRY, compose method -->
+      <p><div class="test"><%= bridge_report.time %><br></div>
+      <% Comment.all.each do |comment| %>
+        <% if comment.bridge_report_id == bridge_report.id %>
+          <%= comment.user.username %> says: <%= comment.content %><br>
+          <% end %>
+        <% end %>
+        <% if bridge_report.user_id == current_user.id %>
+          <form method="post" action="/delete_bridge_report/<%= bridge_report.id %>">
+            <input id="hidden" type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+          </form>
+        <% end %>
+      <% end %>
+  </div>
+
+  <div class="column">
+    <h2>Recent Train Reports</h2>
+    <% if @train_reports.empty? %>
+      <p>All's quiet.
+    <% end %>
+
+    <% @train_reports.reverse.each do |train_report| %>
+      <p><div class="test"><%= train_report.time %><br></div>
+      <% Comment.all.each do |comment| %>
+        <% if comment.train_report_id == train_report.id %>
+          <%= comment.user.username %> says: <%= comment.content %><br>
+        <% end %>
+      <% end %>
+      <% if train_report.user_id == current_user.id %>
+        <form method="post" action="/delete_train_report/<%= train_report.id %>">
+          <input id="hidden" type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete">
+        </form>
       <% end %>
     <% end %>
-    <% if bridge_report.user_id == current_user.id %>
-      <form method="post" action="/delete_bridge_report/<%= bridge_report.id %>">
-        <input id="hidden" type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete">
-      </form>
-    <% end %>
-  <% end %>
-
-<h2>Recent Train Reports</h2>
-<% if @train_reports.empty? %>
-  <p>All's quiet.
-<% end %>
-
-<% @train_reports.reverse.each do |train_report| %>
-  <p><div class="test"><%= train_report.time %><br></div>
-  <% Comment.all.each do |comment| %>
-    <% if comment.train_report_id == train_report.id %>
-      <%= comment.user.username %> says: <%= comment.content %><br>
-    <% end %>
-  <% end %>
-  <% if train_report.user_id == current_user.id %>
-    <form method="post" action="/delete_train_report/<%= train_report.id %>">
-      <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete">
-    </form>
-  <% end %>
-
-<% end %>
+  </div>
+</div>
