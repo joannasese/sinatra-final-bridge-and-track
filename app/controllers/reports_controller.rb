@@ -34,4 +34,16 @@ class ReportController < ApplicationController
     end
   end
 
+  delete "/delete_train_report/:id" do
+    if logged_in?
+      @train_report = TrainReport.find_by_id(params[:id])
+      @comment = @train_report.comments.find_by(:train_report_id => params[:id])
+      @train_report.delete
+      @comment.delete
+      redirect to "/home"
+    else
+      redirect to "/login"
+    end
+  end
+
 end
