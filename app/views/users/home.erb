@@ -1,11 +1,7 @@
-<h2>Home</h2>
-<p>Hey, <%= current_user.username %>. How's the commute?
+<p>Hey, <%= current_user.username %>.<br>How's the commute?
 
 <div class="row">
-  <!-- <div class="space"></div> -->
-
   <div class="bridge_report">
-    <p>Bridge Up?<br>
       <form method="post" action="/report_bridge">
         <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %b %d, %Y") %>">
         <input type="submit" id="submit" value="Report Bridge">
@@ -13,14 +9,11 @@
   </div>
 
   <div class="train_report">
-    <p>Train on the Tracks?<br>
       <form method="post" action="/report_train">
         <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %b %d, %Y") %>">
         <input type="submit" id="submit" value="Report Train">
       </form>
   </div>
-
-  <!-- <div class="space"></div> -->
 </div>
 
 <div class="row">

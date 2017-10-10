@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  padding: 70px 0;
+  /*padding: 70px 0;*/
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	font-style: normal;
@@ -48,28 +48,9 @@ a:hover {
   color: #BA6CCF;
 }
 
-/*.button a {
-    border-bottom: 1px solid #777777;
-    border-left: 1px solid #000000;
-    border-right: 1px solid #333333;
-    border-top: 1px solid #000000;
-    color: #000000;
-    display: block;
-    height: 2.5em;
-    padding: 0 1em;
-    width: 5em;
-    text-decoration: none;
-}*/
-
 .time {
   color: red;
   font-weight: bold;
-}
-
-.space {
-  background-color: black;
-  /*width: 25%;*/
-
 }
 
 .bridge_report {
@@ -101,7 +82,7 @@ a:hover {
     padding-top: 3%;
     padding-right: 3%;
     padding-left: 25%;
-    background-color: yellow;
+    background-color: pink;
     box-sizing: border-box;
 }
 
@@ -113,7 +94,7 @@ a:hover {
     padding-top: 3%;
     padding-right: 25%;
     padding-left: 3%;
-    /*background-color: yellow;*/
+    background-color: cyan;
     box-sizing: border-box;
 }
 

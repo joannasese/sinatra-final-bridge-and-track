@@ -1,6 +1,7 @@
-<p>Thanks. Bridge up reported at <%= @bridge_report_time %>.
+Sorry you're stuck. Put the car in park and whip out the sudoku.<br>
+<strong>Bridge</strong> reported up at <strong><%= @bridge_report_time %></strong>.
 
-<p>Leave a comment:<br>
+<p>Got something to say?<br>
 <form method="post" action="/home/bridge_comment/<%= @bridge_report.id %>">
   <input type="text" name="content">
   <input type="submit" id="submit" value="Comment">

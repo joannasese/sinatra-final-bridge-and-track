@@ -1,6 +1,7 @@
-Thanks. Train crossing the tracks reported at <%= @train_report_time  %>.
+Bummer.<br> <!-- Would be nice to randomize text -->
+<strong>Train</strong> crossing the tracks reported at <strong><%= @train_report_time  %></strong>.
 
-<p>Leave a comment:<br>
+<p>Got something to say?<br>
 <form method="post" action="/home/train_comment/<%= @train_report.id %>">
 
   <input type="text" name="content">

@@ -1,22 +1,22 @@
 class ReportController < ApplicationController
 
-  post "/report_bridge" do
+  post "/report_bridge" do #invisible route
     if logged_in?
       @bridge_report = current_user.bridge_reports.create(time: params[:time])
       @bridge_report.user_id = current_user.id
       @bridge_report.save
-      redirect to "/bridge_comment/#{@bridge_report.id}"
+      redirect to "/bridge_comment/#{@bridge_report.id}" #visible route
     else
       redirect to '/login'
     end
   end
 
-  post "/report_train" do
+  post "/report_train" do #invisible route
     if logged_in?
       @train_report = current_user.train_reports.create(time: params[:time])
       @train_report.user_id = current_user.id
       @train_report.save
-      redirect to "/train_comment/#{@train_report.id}"
+      redirect to "/train_comment/#{@train_report.id}" #visible route
     else
       redirect to '/login'
     end
