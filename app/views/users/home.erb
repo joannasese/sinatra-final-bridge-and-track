@@ -3,13 +3,13 @@
 
 <p>Bridge Up?<br>
   <form method="post" action="/report_bridge">
-    <input type="hidden" name="time" value="<%= Time.new.strftime("%A, %B %d, %Y %l:%M %p %Z") %>">
+    <input type="hidden" name="time" value="<%= Time.now.strftime("%A, %B %d, %Y %l:%M %p %Z") %>">
     <input type="submit" id="submit" value="Report Bridge">
   </form>
 
 <p>Train on the Tracks?<br>
   <form method="post" action="/report_train">
-    <input type="hidden" name="time" value="<%= Time.new.strftime("%A, %B %d, %Y %l:%M %p %Z") %>">
+    <input type="hidden" name="time" value="<%= Time.now.strftime("%A, %B %d, %Y %l:%M %p %Z") %>">
     <input type="submit" id="submit" value="Report Train">
   </form>
 

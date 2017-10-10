@@ -27,7 +27,9 @@ class ReportController < ApplicationController
       @bridge_report = BridgeReport.find_by_id(params[:id])
       @comment = @bridge_report.comments.find_by(:bridge_report_id => params[:id])
       @bridge_report.delete
-      @comment.delete
+      if @comment
+        @comment.delete
+      end
       redirect to "/home"
     else
       redirect to "/login"
@@ -37,9 +39,12 @@ class ReportController < ApplicationController
   delete "/delete_train_report/:id" do
     if logged_in?
       @train_report = TrainReport.find_by_id(params[:id])
+      # binding.pry
       @comment = @train_report.comments.find_by(:train_report_id => params[:id])
       @train_report.delete
-      @comment.delete
+      if @comment
+        @comment.delete
+      end
       redirect to "/home"
     else
       redirect to "/login"

@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171009175703) do
+ActiveRecord::Schema.define(version: 20171010194159) do
 
   create_table "bridge_reports", force: :cascade do |t|
-    t.datetime "time"
+    t.text "time"
     t.integer "user_id"
   end
 
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171009175703) do
   end
 
   create_table "train_reports", force: :cascade do |t|
-    t.datetime "time"
+    t.text "time"
     t.integer "user_id"
   end
 
