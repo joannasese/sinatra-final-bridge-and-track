@@ -3,6 +3,7 @@ class UserController < ApplicationController
   get '/login' do
     if !logged_in?
       erb :"/users/login"
+      flash[:message] = "Please create a valid username and/or password."
     else
       redirect to "/home"
     end
