@@ -19,29 +19,16 @@ How's the commute?
 
 <div class="row">
   <div class="feed_column_left">
+
     <h2>Recent Bridge Reports</h2>
     <% if @bridge_reports.empty? %>
       <p>All's quiet.
     <% end %>
 
-    <% @bridge_reports.reverse.first(10).each do |bridge_report| %> <!-- refactor for DRY, compose method -->
-      <p><div class="time"><%= bridge_report.time %><br></div>
-      <% Comment.all.each do |comment| %>
-        <% if comment.bridge_report_id == bridge_report.id %>
-          <div class="feed_user_text">
-            <strong><%= comment.user.username %>:</strong>
-            <%= comment.content %><br>
-          </div>
-          <% end %>
-        <% end %>
-        <% if bridge_report.user_id == current_user.id %>
-          <form method="post" action="/delete_bridge_report/<%= bridge_report.id %>">
-            <input id="hidden" type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Delete" class="delete_btn">
-          </form>
-        <% end %>
-      <% end %>
-    </div>
+    <%= erb(:"/partials/feed_report", :locals => {:object => @bridge_reports}) %>
+
+
+  </div>
 
   <div class="feed_column_right">
     <h2>Recent Train Reports</h2>
