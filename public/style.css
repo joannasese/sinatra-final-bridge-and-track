@@ -5,7 +5,7 @@ body {
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 400;
+	font-weight: normal;
 	line-height: 20px;
 }
 
@@ -14,7 +14,7 @@ h1 {
 	font-size: 24px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 500;
+	font-weight: bold;
 	line-height: 26.4px;
 }
 
@@ -23,7 +23,8 @@ h2 {
 	font-size: 18px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 500;
+	font-weight: bold;
+  text-align: center;
 	line-height: 20px;
 }
 
@@ -45,16 +46,44 @@ a {
 a:hover {
   text-decoration: none;
   font-weight: bold;
-  color: #BA6CCF;
+  color: #666666;
 }
 
 .time {
-  color: red;
   font-weight: bold;
 }
 
+.btn {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  color: #ffffff;
+  font-size: 20px;
+  background: #666666;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.delete_btn {
+  -webkit-border-radius: 40;
+  -moz-border-radius: 40;
+  border-radius: 40px;
+  color: #ffffff;
+  font-size: 8px;
+  background: #000000;
+  padding: 5px 7px 5px 7px;
+  text-decoration: none;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
 .bridge_report {
-  background-color: red;
+  /*background-color: red;*/
   float: left;
   width: 50%;
   padding-top: 3%;
@@ -65,7 +94,7 @@ a:hover {
 }
 
 .train_report {
-  background-color: blue;
+  /*background-color: blue;*/
   float: right;
   width: 50%;
   padding-top: 3%;
@@ -75,34 +104,35 @@ a:hover {
   box-sizing: border-box;
 }
 
+.feed_user_text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: normal;
+  line-height: 12px;
+  padding-bottom: 1%;
+}
+
 .feed_column_left {
     float: left;
     width: 50%;
-    text-align: center;
+    text-align: left;
     padding-top: 3%;
     padding-right: 3%;
     padding-left: 25%;
-    background-color: pink;
+    /*background-color: pink;*/
     box-sizing: border-box;
 }
 
 .feed_column_right {
     float: right;
     width: 50%;
-    background-color: green;
-    text-align: center;
+    text-align: left;
     padding-top: 3%;
     padding-right: 25%;
     padding-left: 3%;
-    background-color: cyan;
+    /*background-color: cyan;*/
     box-sizing: border-box;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
 }
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */

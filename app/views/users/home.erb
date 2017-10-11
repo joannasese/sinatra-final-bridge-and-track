@@ -1,17 +1,18 @@
-<p>Hey, <%= current_user.username %>.<br>How's the commute?
+<p><strong>Hey, <%= current_user.username %>.</strong><br>
+How's the commute?
 
 <div class="row">
   <div class="bridge_report">
       <form method="post" action="/report_bridge">
-        <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %b %d, %Y") %>">
-        <input type="submit" id="submit" value="Report Bridge">
+        <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %x") %>">
+        <input type="submit" id="submit" value="Report Bridge" class="btn">
       </form>
   </div>
 
   <div class="train_report">
       <form method="post" action="/report_train">
-        <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %b %d, %Y") %>">
-        <input type="submit" id="submit" value="Report Train">
+        <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %x") %>">
+        <input type="submit" id="submit" value="Report Train" class="btn">
       </form>
   </div>
 </div>
@@ -27,13 +28,16 @@
       <p><div class="time"><%= bridge_report.time %><br></div>
       <% Comment.all.each do |comment| %>
         <% if comment.bridge_report_id == bridge_report.id %>
-          <%= comment.user.username %> says: <%= comment.content %><br>
+          <div class="feed_user_text">
+            <strong><%= comment.user.username %>:</strong>
+            <%= comment.content %><br>
+          </div>
           <% end %>
         <% end %>
         <% if bridge_report.user_id == current_user.id %>
           <form method="post" action="/delete_bridge_report/<%= bridge_report.id %>">
             <input id="hidden" type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Delete">
+            <input type="submit" value="Delete" class="delete_btn">
           </form>
         <% end %>
       <% end %>
@@ -49,13 +53,16 @@
       <p><div class="time"><%= train_report.time %><br></div>
       <% Comment.all.each do |comment| %>
         <% if comment.train_report_id == train_report.id %>
-          <%= comment.user.username %> says: <%= comment.content %><br>
+          <div class="feed_user_text">
+            <strong><%= comment.user.username %>:</strong>
+            <%= comment.content %><br>
+          </div>
         <% end %>
       <% end %>
       <% if train_report.user_id == current_user.id %>
         <form method="post" action="/delete_train_report/<%= train_report.id %>">
           <input id="hidden" type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Delete">
+          <input type="submit" value="Delete" class="delete_btn">
         </form>
       <% end %>
     <% end %>
@@ -63,5 +70,5 @@
 </div>
 
 <p><form method="get" action="/logout">
-  <input type="submit" value="Logout">
+  <input type="submit" value="Logout" class="btn">
 </form>
