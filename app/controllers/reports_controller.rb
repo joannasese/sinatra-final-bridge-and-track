@@ -24,6 +24,7 @@ class ReportController < ApplicationController
 
   delete "/delete_bridge_report/:id" do
     if logged_in?
+
       @bridge_report = BridgeReport.find_by_id(params[:id])
       @comment = @bridge_report.comments.find_by(:bridge_report_id => params[:id])
       @bridge_report.delete

@@ -27,7 +27,6 @@ How's the commute?
 
     <%= erb(:"/partials/feed_report", :locals => {:object => @bridge_reports}) %>
 
-
   </div>
 
   <div class="feed_column_right">
@@ -36,23 +35,8 @@ How's the commute?
       <p>All's quiet.
     <% end %>
 
-    <% @train_reports.reverse.first(10).each do |train_report| %>
-      <p><div class="time"><%= train_report.time %><br></div>
-      <% Comment.all.each do |comment| %>
-        <% if comment.train_report_id == train_report.id %>
-          <div class="feed_user_text">
-            <strong><%= comment.user.username %>:</strong>
-            <%= comment.content %><br>
-          </div>
-        <% end %>
-      <% end %>
-      <% if train_report.user_id == current_user.id %>
-        <form method="post" action="/delete_train_report/<%= train_report.id %>">
-          <input id="hidden" type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Delete" class="delete_btn">
-        </form>
-      <% end %>
-    <% end %>
+    <%= erb(:"/partials/feed_report", :locals => {:object => @train_reports}) %>
+
   </div>
 </div>
 

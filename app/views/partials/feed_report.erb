@@ -9,9 +9,16 @@
     <% end %>
   <% end %>
   <% if report.user_id == current_user.id %>
-    <form method="post" action="/delete_<%= "bridge" || "train" %>"_report/<%= report.id %>">
+    <% if report.to_s.include?("Bridge") %>
+      <form method="post" action="/delete_<%= "bridge" %>_report/<%= report.id %>">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Delete" class="delete_btn">
-    </form>
+      </form>
+    <% elsif report.to_s.include?("Train") %>
+      <form method="post" action="/delete_<%= "train" %>_report/<%= report.id %>">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete" class="delete_btn">
+      </form>
+    <% end %>
   <% end %>
 <% end %>
