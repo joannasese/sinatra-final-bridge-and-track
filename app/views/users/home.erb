@@ -4,18 +4,17 @@ How's the commute?
 <!-- REPORT BUTTONS -->
 <div class="row">
   <div class="bridge_report">
-    <%= erb(:"/partials/report_button", :locals => {:object => "Bridge"}) %>
+    <%= erb(:"/partials/report_button", :locals => {:object => "bridge"}) %>
   </div>
 
   <div class="train_report">
-    <%= erb(:"/partials/report_button", :locals => {:object => "Train"}) %>
+    <%= erb(:"/partials/report_button", :locals => {:object => "train"}) %>
   </div>
 </div>
 
 <!-- REPORT FEED -->
 <div class="row">
   <div class="feed_column_left">
-
     <h2>Recent Bridge Reports</h2>
     <% if @bridge_reports.empty? %>
       <p>All's quiet.
