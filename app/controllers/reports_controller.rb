@@ -14,16 +14,7 @@ class ReportController < ApplicationController
   end
 
   post "/report_train" do #invisible route
-    if logged_in?
-      @report = current_user.reports.build(time: params[:time])
-      if @report.save
-        redirect to "/train_comment/#{@report.id}" #visible route
-      else
-        redirect to '/'
-      end
-    else
-      redirect to '/login'
-    end
+    post_report("train")
   end
 
   delete "/delete_bridge_report/:id" do

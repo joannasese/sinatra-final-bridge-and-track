@@ -22,6 +22,20 @@ class ApplicationController < Sinatra::Base
       def logged_in?
         !!current_user
       end
+
+      def post_report(mode)
+        if logged_in?
+          @report = current_user.reports.build(time: params[:time])
+          if @report.save
+            redirect to "/#{mode}_comment/#{@report.id}" #visible route
+          else
+            redirect to '/'
+          end
+        else
+          redirect to '/login'
+        end
+      end
+
     end
 
 end
