@@ -31,11 +31,11 @@ How's the commute?
 
   <div class="feed_column_right">
     <h2>Recent Train Reports</h2>
-    <% if @reports.empty? %>
+    <% if @train_reports.empty? %>
       <p>All's quiet.
     <% end %>
 
-    <%= erb(:"/partials/feed_report", :locals => {:object => @reports}) %>
+    <%= erb(:"/partials/feed_report", :locals => {:object => @train_reports}) %>
 
   </div>
 </div>
