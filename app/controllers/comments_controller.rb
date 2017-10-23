@@ -7,7 +7,7 @@ class CommentController < ApplicationController
   end
 
   post "/home/bridge_comment/:id" do #invisible route
-    if params[:content] != ""
+    if params[:content] != "" #make as helper method? since code is repeated starting line 26
       @comment = current_user.comments.create(content: params[:content])
       @comment.user_id = current_user.id
       @comment.bridge_report_id = current_user.bridge_reports.last.id
