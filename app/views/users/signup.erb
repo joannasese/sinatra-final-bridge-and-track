@@ -1,5 +1,9 @@
 <h2>Sign Up</h2>
 
+<% if flash.has?(:error) %>
+  <%= flash[:error] %><!--make bold and red-->
+<% end %>
+
 <form method="post" action="/signup">
   <p><label>Username:</label><br>
   <input type="text" name="username">

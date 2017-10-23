@@ -14,6 +14,7 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect to "/home"
     else
+      flash[:error] = "Wrong username and/or password."
       redirect to "/login"
     end
     erb :"index"
@@ -29,6 +30,7 @@ class UserController < ApplicationController
 
   post '/signup' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      flash[:error] = "Username, email and password required for signup."
       redirect to "/signup"
     else
       @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
