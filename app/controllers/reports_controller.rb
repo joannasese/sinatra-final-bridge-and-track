@@ -15,10 +15,12 @@ class ReportController < ApplicationController
 
   post "/report_train" do #invisible route
     if logged_in?
-      @train_report = current_user.train_reports.create(time: params[:time])
-      @train_report.user_id = current_user.id
-      @train_report.save
-      redirect to "/train_comment/#{@train_report.id}" #visible route
+      @report = current_user.reports.build(time: params[:time])
+      if @report.save
+        redirect to "/train_comment/#{@report.id}" #visible route
+      else
+        redirect to '/'
+      end
     else
       redirect to '/login'
     end
