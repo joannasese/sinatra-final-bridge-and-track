@@ -1,7 +1,7 @@
 <% object.reverse.first(10).each do |report| %>
   <p><div class="time"><%= report.time %><br></div>
   <% Comment.all.each do |comment| %>
-    <% if comment.bridge_report_id == report.id || comment.train_report_id == report.id %>
+    <% if comment.report_id == report.id %>
       <div class="feed_user_text">
         <strong><%= comment.user.username %>:</strong>
         <%= comment.content %><br>

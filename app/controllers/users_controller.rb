@@ -42,6 +42,7 @@ class UserController < ApplicationController
 
   get '/home' do
     if logged_in?
+      @reports = Report.all
       @bridge_reports = BridgeReport.all
       @train_reports = TrainReport.all
       erb :'users/home'
