@@ -23,13 +23,7 @@ class CommentController < ApplicationController
   end
 
   post '/home/train_comment/:id' do #invisible route
-    if params[:content] != ""
-      @comment = current_user.comments.create(content: params[:content])
-      @comment.user_id = current_user.id
-      @comment.report_id = current_user.reports.last.id
-      @comment.save
-      redirect to "/home" #redirects to homepage after comment page
-    end
+    post_comment
   end
 
 end

@@ -38,6 +38,16 @@ class ApplicationController < Sinatra::Base
         end
       end
 
+      def post_comment
+        if params[:content] != ""
+          @comment = current_user.comments.create(content: params[:content])
+          @comment.user_id = current_user.id
+          @comment.report_id = current_user.reports.last.id
+          @comment.save
+          redirect to "/home" #redirects to homepage after comment page
+        end
+      end
+
     end
 
 end
