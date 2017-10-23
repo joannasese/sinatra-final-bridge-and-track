@@ -8,11 +8,11 @@ class ReportController < ApplicationController
     post_report("train")
   end
 
-  delete "/delete_bridge_report/:id" do
+  delete "/report/:id" do
     delete_report
   end
 
-  delete "/delete_train_report/:id" do
+  delete "/report/:id" do
     delete_report
   end
 

@@ -9,16 +9,9 @@
     <% end %>
   <% end %>
   <% if report.user_id == current_user.id %>
-    <% if report.mode = "bridge" %>
-      <form method="post" action="/delete_<%= "bridge" %>_report/<%= report.id %>">
+    <form method="post" action="/report/<%= report.id %>">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Delete" class="delete_btn">
-      </form>
-    <% elsif report.mode = "train" %>
-      <form method="post" action="/delete_<%= "train" %>_report/<%= report.id %>">
-      <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete" class="delete_btn">
-      </form>
-    <% end %>
+    </form>
   <% end %>
 <% end %>
