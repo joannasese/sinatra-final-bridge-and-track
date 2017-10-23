@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20171023182445) do
   create_table "reports", force: :cascade do |t|
     t.text "time"
     t.integer "user_id"
-    t.string "type"
+    t.string "mode"
   end
 
   create_table "train_reports", force: :cascade do |t|

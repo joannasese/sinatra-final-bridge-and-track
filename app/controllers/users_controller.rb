@@ -43,8 +43,8 @@ class UserController < ApplicationController
   get '/home' do
     if logged_in?
       @reports = Report.all
-      @bridge_reports = @reports.each {|report| report.type="bridge"}
-      @train_reports = @reports.each {|report| report.type="train"}
+      @bridge_reports = @reports.each {|report| report.mode="bridge"}
+      @train_reports = @reports.each {|report| report.mode="train"}
       erb :'users/home'
     else
       redirect to '/login'
