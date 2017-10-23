@@ -17,8 +17,8 @@ class CommentController < ApplicationController
   end
 
   get '/train_comment/:id' do #visible route
-    @train_report = TrainReport.find_by_id(params[:id])
-    @train_report_time = current_user.train_reports.last.time
+    @report = Report.find_by_id(params[:id])
+    @report_time = current_user.reports.last.time
     erb :"/reports/report_train"
   end
 
@@ -26,7 +26,7 @@ class CommentController < ApplicationController
     if params[:content] != ""
       @comment = current_user.comments.create(content: params[:content])
       @comment.user_id = current_user.id
-      @comment.train_report_id = current_user.train_reports.last.id
+      @comment.report_id = current_user.reports.last.id
       @comment.save
       redirect to "/home" #redirects to homepage after comment page
     end
