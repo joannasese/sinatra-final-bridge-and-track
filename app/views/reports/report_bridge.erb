@@ -1,8 +1,8 @@
 Sorry you're stuck. Put the car in park and whip out the sudoku.<br>
-<strong>Bridge</strong> reported up at <strong><%= @bridge_report_time %></strong>.
+<strong>Bridge</strong> reported up at <strong><%= @report.time %></strong>.
 
-<p>Got something to say?<br>
-<form method="post" action="/home/bridge_comment/<%= @bridge_report.id %>">
+<p>Got something to say?<br><!-- make partial -->
+<form method="post" action="/home/bridge_comment/<%= @report.id %>">
   <input type="text" name="content">
   <input type="submit" id="submit" value="Comment">
 </form>

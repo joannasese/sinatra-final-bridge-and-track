@@ -1,7 +1,7 @@
 Bummer.<br> <!-- Would be nice to randomize text -->
 <strong>Train</strong> crossing the tracks reported at <strong><%= @report.time  %></strong>.
 
-<p>Got something to say?<br>
+<p>Got something to say?<br><!-- make partial -->
 <form method="post" action="/home/train_comment/<%= @report.id %>">
   <input type="text" name="content">
   <input type="submit" id="submit" value="Comment">
