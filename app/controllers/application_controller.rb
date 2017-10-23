@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
 
       def post_report(mode)
         if logged_in?
-          @report = current_user.reports.create(time: params[:time])
+          @report = current_user.reports.create(time: params[:time]) #will not work with build/new
           @report.user_id = current_user.id
           @report.mode = mode
           if @report.save

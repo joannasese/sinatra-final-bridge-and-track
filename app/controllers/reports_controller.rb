@@ -1,16 +1,6 @@
 class ReportController < ApplicationController
 
   post "/report_bridge" do #invisible route
-    # if logged_in?
-    #   @bridge_report = current_user.bridge_reports.build(time: params[:time])
-    #   if @bridge_report.save
-    #     redirect to "/bridge_comment/#{@bridge_report.id}"
-    #   else
-    #     redirect to '/'
-    #   end
-    # else
-    #   redirect to '/login'
-    # end
     post_report("bridge")
   end
 

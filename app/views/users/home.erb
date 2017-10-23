@@ -4,17 +4,11 @@ How's the commute?
 <!-- REPORT BUTTONS -->
 <div class="row">
   <div class="bridge_report">
-      <form method="post" action="/report_bridge">
-        <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %x") %>">
-        <input type="submit" id="submit" value="Report Bridge" class="btn">
-      </form>
+    <%= erb(:"/partials/report_button", :locals => {:object => "Bridge"}) %>
   </div>
 
   <div class="train_report">
-      <form method="post" action="/report_train">
-        <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %x") %>">
-        <input type="submit" id="submit" value="Report Train" class="btn">
-      </form>
+    <%= erb(:"/partials/report_button", :locals => {:object => "Train"}) %>
   </div>
 </div>
 
