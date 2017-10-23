@@ -1,8 +1,8 @@
 Bummer.<br> <!-- Would be nice to randomize text -->
-<strong>Train</strong> crossing the tracks reported at <strong><%= @train_report_time  %></strong>.
+<strong>Train</strong> crossing the tracks reported at <strong><%= @report.time  %></strong>.
 
 <p>Got something to say?<br>
-<form method="post" action="/home/train_comment/<%= @train_report.id %>">
+<form method="post" action="/home/train_comment/<%= @report.id %>">
   <input type="text" name="content">
   <input type="submit" id="submit" value="Comment">
 </form>

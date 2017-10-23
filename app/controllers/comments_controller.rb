@@ -18,7 +18,7 @@ class CommentController < ApplicationController
 
   get '/train_comment/:id' do #visible route
     @report = Report.find_by_id(params[:id])
-    @report_time = current_user.reports.last.time
+    # @report_time = current_user.reports.last.time
     erb :"/reports/report_train"
   end
 
