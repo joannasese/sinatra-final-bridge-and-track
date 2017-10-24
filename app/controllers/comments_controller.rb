@@ -2,7 +2,7 @@ class CommentController < ApplicationController
 
   get "/reports/:id/comments" do #visible route
     @report = Report.find_by_id(params[:id])
-    erb :"/reports/report_bridge"
+    erb :"/reports/show"
   end
 
   post "/reports/:id/comments" do #invisible route
