@@ -15,13 +15,4 @@ class CommentController < ApplicationController
     end
   end
 
-  # get '/comment/:id' do #visible route
-  #   @report = Report.find_by_id(params[:id])
-  #   erb :"/reports/report_train"
-  # end
-  #
-  # post '/train_comment/:id' do #invisible route
-  #   post_comment
-  # end
-
 end
