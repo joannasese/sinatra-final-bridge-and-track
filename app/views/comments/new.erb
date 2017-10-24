@@ -1,5 +1,10 @@
 <p>Got something to say?<br>
 <form method="post" action="/reports/<%= @report.id %>/comments">
   <input type="text" name="content">
-  <input type="submit" id="submit" value="Comment">
+  <p>
+  <input type="submit" id="submit" value="Comment" class="btn">
+</form>
+<p>
+<form method="get" action="/home">
+  <input type="submit" value="Home" class="btn">
 </form>
