@@ -46,7 +46,7 @@ class UserController < ApplicationController
       @reports = Report.all
       @bridge_reports = @reports.select {|report| report.mode=="bridge"}
       @train_reports = @reports.select {|report| report.mode=="train"}
-      erb :'users/home'
+      erb :'users/show'
     else
       redirect to '/login'
     end
