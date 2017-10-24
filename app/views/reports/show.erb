@@ -4,11 +4,7 @@ Sorry you're stuck. Put the car in park and whip out the sudoku.<br>
 <strong><%= mode.slice(0,1).capitalize + mode.slice(1..-1) %></strong>
   reported up at <strong><%= @report.time %></strong>.
 
-<p>Got something to say?<br>
-<form method="post" action="/reports/<%= @report.id %>/comments">
-  <input type="text" name="content">
-  <input type="submit" id="submit" value="Comment">
-</form>
+
 
 <p>
 <form method="get" action="/home">
