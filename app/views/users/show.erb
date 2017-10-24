@@ -4,11 +4,11 @@ How's the commute?
 <!-- REPORT BUTTONS -->
 <div class="row">
   <div class="bridge_report">
-    <%= erb(:"/partials/report_button", :locals => {:object => "bridge"}) %>
+    <%= erb(:"/partials/users_show_report_button", :locals => {:object => "bridge"}) %>
   </div>
 
   <div class="train_report">
-    <%= erb(:"/partials/report_button", :locals => {:object => "train"}) %>
+    <%= erb(:"/partials/users_show_report_button", :locals => {:object => "train"}) %>
   </div>
 </div>
 
@@ -20,7 +20,7 @@ How's the commute?
       <p>All's quiet.
     <% end %>
 
-    <%= erb(:"/partials/feed_report", :locals => {:object => @bridge_reports}) %>
+    <%= erb(:"/partials/users_show_report_feed", :locals => {:object => @bridge_reports}) %>
 
   </div>
 
@@ -31,7 +31,7 @@ How's the commute?
       <p>All's quiet.
     <% end %>
 
-    <%= erb(:"/partials/feed_report", :locals => {:object => @train_reports}) %>
+    <%= erb(:"/partials/users_show_report_feed", :locals => {:object => @train_reports}) %>
 
   </div>
 </div>
