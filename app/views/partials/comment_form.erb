@@ -1,5 +1,5 @@
 <p>Got something to say?<br>
-<form method="post" action="/<%= @report.mode %>_comment/<%= @report.id %>">
+<form method="post" action="/comment/<%= @report.id %>">
   <input type="text" name="content">
   <input type="submit" id="submit" value="Comment">
 </form>

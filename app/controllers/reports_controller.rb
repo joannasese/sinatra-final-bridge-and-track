@@ -16,10 +16,9 @@ class ReportController < ApplicationController
 
   post "/reports" do
     if logged_in?
-      @report = current_user.reports.build(time: params[:time], mode: params[:mode])
-      @report.user_id = current_user.id
+      @report = current_user.reports.create(time: params[:time], mode: params[:mode])
       if @report.save
-        redirect to "/#{@report.mode}_comment/#{@report.id}"
+        redirect to "/comment/#{@report.id}"
       else
         redirect to '/'
       end
