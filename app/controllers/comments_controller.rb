@@ -1,11 +1,11 @@
 class CommentController < ApplicationController
 
-  get "/comment/:id" do #visible route
+  get "/reports/:id/comments" do #visible route
     @report = Report.find_by_id(params[:id])
     erb :"/reports/report_bridge"
   end
 
-  post "/comment/:id" do #invisible route
+  post "/reports/:id/comments" do #invisible route
     if params[:content] != ""
       @comment = current_user.comments.build(content: params[:content])
       @comment.user_id = current_user.id
