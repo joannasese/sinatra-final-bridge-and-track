@@ -1,4 +1,5 @@
-<form method="post" action="/report_<%= object %>">
+<form method="post" action="/reports">
   <input type="hidden" name="time" value="<%= Time.now.strftime("%l:%M %p, %a, %x") %>">
+  <input type="hidden" name="mode" value="<%= object %>">
   <input type="submit" id="submit" value="Report <%= object.slice(0,1).capitalize + object.slice(1..-1) %>" class="btn">
 </form>

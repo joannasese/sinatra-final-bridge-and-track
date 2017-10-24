@@ -10,18 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023182445) do
-
-  create_table "bridge_reports", force: :cascade do |t|
-    t.text "time"
-    t.integer "user_id"
-  end
+ActiveRecord::Schema.define(version: 20171024201220) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
     t.integer "user_id"
-    t.integer "bridge_report_id"
-    t.integer "train_report_id"
     t.integer "report_id"
   end
 
@@ -31,15 +24,8 @@ ActiveRecord::Schema.define(version: 20171023182445) do
     t.string "mode"
   end
 
-  create_table "train_reports", force: :cascade do |t|
-    t.text "time"
-    t.integer "user_id"
-  end
-
   create_table "user_reports", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "bridge_report_id"
-    t.integer "train_report_id"
     t.integer "report_id"
   end
 
