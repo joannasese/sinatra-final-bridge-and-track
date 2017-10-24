@@ -48,19 +48,19 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  def delete_report
+  # def delete_report
     # deleting report does not appeat to automatically delete comment. comment currently deleted separately.
-    if logged_in?
-      @report = Report.find_by_id(params[:id])
-      @comment = @report.comments.find_by(:report_id => params[:id])
-      @report.delete
-      if @comment
-        @comment.delete
-      end
-      redirect to "/home"
-    else
-      redirect to "/login"
-    end
-  end
+    # if logged_in?
+    #   @report = Report.find_by_id(params[:id])
+    #   @comment = @report.comments.find_by(:report_id => params[:id])
+    #   @report.delete
+    #   if @comment
+    #     @comment.delete
+    #   end
+    #   redirect to "/home"
+    # else
+    #   redirect to "/login"
+    # end
+  # end
 
 end

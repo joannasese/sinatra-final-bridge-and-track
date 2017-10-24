@@ -1,29 +1,30 @@
 class ReportController < ApplicationController
 
-  # post "/report_bridge" do #invisible route
-  #   post_report("bridge")
-  # end
-  #
-  # post "/report_train" do #invisible route
-  #   post_report("train")
-  # end
-
   delete "/report/:id" do
-    delete_report
+    if logged_in?
+      @report = Report.find_by_id(params[:id])
+      @comment = @report.comments.find_by(:report_id => params[:id])
+      @report.delete
+      if @comment
+        @comment.delete
+      end
+      redirect to "/home"
+    else
+      redirect to "/login"
+    end
   end
 
   post "/reports" do
     if logged_in?
       @report = current_user.reports.build(time: params[:time], mode: params[:mode])
-        binding.pry
-      if current_user.save
+      @report.user_id = current_user.id
+      if @report.save
         redirect to "/#{@report.mode}_comment/#{@report.id}"
-
       else
         redirect to '/'
       end
     else
-        redirect to '/login'
+      redirect to '/login'
     end
   end
 
