@@ -2,9 +2,8 @@ class ReportController < ApplicationController
 
   post "/reports" do #invisible route
     if logged_in?
-      @report = current_user.reports.create(time: params[:time], mode: params[:mode])
-      @report.user_id = current_user.id
-      if @report.save
+      @report = current_user.reports.build(time: params[:time], mode: params[:mode])
+      if current_user.save
         redirect to "/reports/#{@report.id}"
       else
         redirect to '/home'
@@ -24,9 +23,6 @@ class ReportController < ApplicationController
       @report = Report.find_by_id(params[:id])
       @comment = @report.comments.find_by(:report_id => params[:id])
       @report.delete
-      if @comment
-        @comment.delete
-      end
       redirect to "/home"
     else
       redirect to "/login"

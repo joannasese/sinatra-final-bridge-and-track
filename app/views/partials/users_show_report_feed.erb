@@ -8,7 +8,7 @@
       </div>
     <% end %>
   <% end %>
-  <% if report.user_id == current_user.id %>
+  <% if report.users.include?(current_user) %>
     <form method="post" action="/reports/<%= report.id %>">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Delete" class="delete_btn">

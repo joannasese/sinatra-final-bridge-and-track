@@ -1,21 +1,27 @@
 class CommentController < ApplicationController
 
-  get "/reports/:id/comments/new" do #visible route
-    if logged_in?
-      @report = Report.find_by_id(params[:id])
-      erb :"/comments/new"
+  post "/reports/:report_id/comments" do #invisible route
+    if @report = Report.find_by(id: params[:report_id])
+      @comment = @report.comments.build(content: params[:content], user: current_user)
+      if @comment.save
+        redirect to "/reports/#{@report.id}"
+      else
+        redirect to "/reports/#{@report.id}/comments/new"
+      end
     else
-      redirect to '/login'
+      redirect to '/home'
     end
   end
 
-  post "/reports/:id/comments" do #invisible route
-    if params[:content] != ""
-      @comment = current_user.comments.build(content: params[:content])
-      @comment.user_id = current_user.id
-      @comment.report_id = current_user.reports.last.id
-      @comment.save
-      redirect to "/home" #redirects to homepage after comment page
+  delete "/reports/:report_id/comments/:id" do
+    if @report = Report.find_by(id: params[:report_id])
+      @comment = @report.comments.find_by(id: params[:id])
+      if @comment && @comment.user == current_user
+        @comment.destroy
+      end
+      redirect to "/reports/#{@report.id}"
+    else
+      redirect to '/home'
     end
   end
 
